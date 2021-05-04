@@ -1,0 +1,4 @@
+Lenguaje: Perl
+Temas:
+	1. Validación de una dirección IP, ya que esta está formada por la forma [0-255].[0-255]. [0-255].[0-255].
+	2. Valida un nombre de usuario en twitter, empieza por @ y puede contener letras mayúsculas y minúsculas, números, guiones y guiones bajos.
