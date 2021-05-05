@@ -12,15 +12,13 @@ sub user_validation {
     # receiving the first parameter passed to the function as the plate to be validated
     my $user = $_[0];
     print "'$user' ";
-    if ($user =~ /\A@([A-Za-z]|\d|-|_)+\z/) {
+    if ($user =~ /\A@(\w|\d|-|_)+\z/) {
         print "usuario de twitter VÁLIDO\n";
     }
     else {
         print "usuario de twitter INVÁLIDO\n";
     }
 }
-
-
 
 print "VALIDAR NOMBRE DE USUARIO EN TWITTER (emoji pajaro here)\n\n";
 print "Ingrese tantos usuarios como quiera\n";

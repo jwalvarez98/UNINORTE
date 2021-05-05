@@ -7,19 +7,12 @@ use strict;
 use warnings FATAL => 'all';
 
 # user validator subroutine
-sub user_validation {
+sub ip_validation {
     # receiving the first parameter passed to the function as the plate to be validated
-    my $user = $_[0];
-    print "'$user' ";
+    my $ip = $_[0];
+    print "'$ip' ";
 
-    #un numero [0-9]                            0-9
-    #dos numeros [1-9][0-9]                     1-99
-    #tres numeros [1][0-9][0-9]|[2][0-5][0-5]   100-255
-
-    #Campo ip [1-255], es decir un solo numero de 1 a 255
-    #([1-9]|[1-9]\d|[1]\d\d|[2][0-5][0-5])
-
-    if ($user =~ /\A(\d|[1-9]\d|[1]\d\d|[2][0-5][0-5]).(\d|[1-9]\d|[1]\d\d|[2][0-5][0-5]).(\d|[1-9]\d|[1]\d\d|[2][0-5][0-5]).(\d|[1-9]\d|[1]\d\d|[2][0-5][0-5])\z/) {
+    if ($ip =~ /\A(\d|[1-9]\d|[1]\d\d|[2][0-5][0-5])(.(\d|[1-9]\d|[1]\d\d|[2][0-5][0-5])){3}\z/) {
         print "dirección ip VÁLIDA\n";
     }
     else {
@@ -34,10 +27,10 @@ print "Para salir presione CTRL+D o CTRL+C\n\n";
 # looping until we EOF
 for (;;) {
     # getting the current input user
-    my $user = <STDIN>;
+    my $ip = <STDIN>;
     # break the loop if there are no input
-    last if not defined $user;
-    chomp $user;
+    last if not defined $ip;
+    chomp $ip;
     # validate user received
-    user_validation($user);
+    ip_validation($ip);
 }
