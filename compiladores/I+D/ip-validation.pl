@@ -6,13 +6,13 @@
 use strict;
 use warnings FATAL => 'all';
 
-# user validator subroutine
+# ip validator subroutine
 sub ip_validation {
     # receiving the first parameter passed to the function as the plate to be validated
     my $ip = $_[0];
     print "'$ip' ";
 
-    if ($ip =~ /\A(\d|[1-9]\d|[1]\d\d|[2][0-5][0-5])(.(\d|[1-9]\d|[1]\d\d|[2][0-5][0-5])){3}\z/) {
+    if ($ip =~ /\A((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\z/) {
         print "dirección ip VÁLIDA\n";
     }
     else {
